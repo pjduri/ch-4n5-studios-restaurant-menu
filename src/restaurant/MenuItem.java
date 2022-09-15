@@ -8,15 +8,13 @@ public class MenuItem {
     private Double price;
     private String description;
     private String category;
-    private Date dateAdded;
     private Boolean isNew;
 
-    public MenuItem(String name, Double price, String description, String category, Date dateAdded, Boolean isNew) {
+    public MenuItem(String name, Double price, String description, String category, Boolean isNew) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.category = category;
-        this.dateAdded = dateAdded;
         this.isNew = isNew;
     }
 
@@ -51,15 +49,13 @@ public class MenuItem {
     public Boolean getIsNew() {
         return isNew;
     }
-    private void setIsNew(Boolean aNew) {
-        isNew = aNew;
-    }
+    private void setIsNew(Boolean aNew) { isNew = aNew; }
 
-    public Date getDateAdded() {
-        return dateAdded;
-    }
-    public void setDateAdded(Date aDateAdded) {
-        this.dateAdded = aDateAdded;
-    }
+//    public Date getDateAdded() {
+//        return dateAdded;
+//    }
+//    public void setDateAdded(Date aDateAdded) {
+//        this.dateAdded = aDateAdded;
+//    }
 
 }
