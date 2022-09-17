@@ -51,7 +51,22 @@ public class MenuItem {
     }
     private void setIsNew(Boolean aNew) { isNew = aNew; }
 
-//    public Date getDateAdded() {
+    @Override
+    public String toString() {
+        if (isNew && !name.contains(" - New Item!!!")) {
+            name += " - New Item!!!";
+        } else if (isNew && name.contains(" - New Item!!!")) {
+            name.replace(" - New Item!!!", "");
+        }
+        String dottedLine = "";
+        for (int i = 0; i < 25 - name.length(); i++) {
+            dottedLine += ".";
+        }
+        return name + ": " + dottedLine + ' ' + price
+                + "\n" + description + '\n';
+    }
+
+    //    public Date getDateAdded() {
 //        return dateAdded;
 //    }
 //    public void setDateAdded(Date aDateAdded) {

@@ -12,7 +12,7 @@ public class Menu {
     private HashMap<String, ArrayList<MenuItem>> currentMenuItems;
     // key = category
 
-    public Menu(String dateUpdated, Date currentDate, HashMap<String, ArrayList<MenuItem>> currentMenuItems, ArrayList<MenuItem> oldMenuItems) {
+    public Menu(String dateUpdated, Date currentDate, HashMap<String, ArrayList<MenuItem>> currentMenuItems) {
         this.dateUpdated = dateUpdated;
         this.currentDate = currentDate;
         this.currentMenuItems = currentMenuItems;
@@ -47,11 +47,20 @@ public class Menu {
                 category.getValue().add(item);
             }
         }
+        dateUpdated = currentDate.toString();
     }
 
-//    for (Map.Entry<String, Double> student : students.entrySet()) {
-//        System.out.println(student.getKey() + " (" + student.getValue() + ")");
-//        sum += student.getValue();
-//    }
+    @Override
+    public String toString() {
+        StringBuilder menuItems = new StringBuilder();
+        for (Map.Entry<String, ArrayList<MenuItem>> category : currentMenuItems.entrySet()) {
+            menuItems.append(category.getKey()).append(":\n").append(category.getValue());
+        }
+        return "Welcome to Flagrantly Delicious!" + '\n' +
+                "Last Updated: " + dateUpdated.toString() + '\n' +
+                "Today's Date: " + currentDate.toString() + '\n' +
+                menuItems + '\n';
+
+    }
 
 }
